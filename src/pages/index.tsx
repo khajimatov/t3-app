@@ -1,12 +1,17 @@
+import React, { useEffect } from "react";
+
 import { type NextPage } from "next";
 import Head from "next/head";
 
 import { Card, Metric, Text, Flex, Grid } from "@tremor/react";
+import { toast } from "react-hot-toast";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const { data: exampleStocks, isLoading } = api.exampleStocks.getAll.useQuery();
-
+  useEffect(() => {
+    toast.success("Welcome to StockDash");
+  }, []);
   return (
     <>
       <Head>
